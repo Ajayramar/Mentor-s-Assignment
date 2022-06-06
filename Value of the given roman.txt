@@ -1,0 +1,44 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+       Scanner input=new Scanner(System.in);
+       System.out.print("enter the string :");
+       String string=input.next();
+       int plus=0;
+       int minus=0;
+       int result=0;
+       HashMap<Character,Integer> data=new HashMap<Character, Integer>();
+       data.put('I',1);
+       data.put('V',5);
+       data.put('X',10);
+       data.put('L',50);
+       data.put('C',100);
+       data.put('D',500);
+       data.put('M',1000);
+       int i=0;
+       try {
+           if (string.length() != 1) {
+               for (i = 0; i < string.length() - 1; i++) {
+                   if (data.get(string.charAt(i)) >= data.get(string.charAt(i + 1))) {
+                       plus += data.get(string.charAt(i));
+                   } else {
+                       minus += data.get(string.charAt(i));
+                   }
+               }
+               if (data.get(string.charAt(i)) >= data.get(string.charAt(i - 1))) {
+                   plus += data.get(string.charAt(i));
+               } else {
+                   minus += data.get(string.charAt(i));
+               }
+               result = plus - minus;
+           } else {
+               result = data.get(string.charAt(0));
+           }
+           System.out.println("THE VALUE OF GIVEN ROMAN :" + result);
+       }catch (NullPointerException npe){
+           System.out.println("PLEASE CHECK YOUR INPUT...................................... ");
+       }
+    }
+}

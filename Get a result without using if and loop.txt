@@ -1,0 +1,12 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        System.out.print("Enter the mark :");
+        int mark=input.nextInt();
+        String result=mark<35?"fail":mark<65?"pass":mark<90?"firstClass":"distinction";
+        System.out.println(result);
+    }
+}
